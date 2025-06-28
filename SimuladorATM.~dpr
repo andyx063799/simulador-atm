@@ -1,0 +1,17 @@
+program SimuladorATM;
+
+uses
+  Forms,
+  Unidad_Bienvenida in 'Unidad_Bienvenida.pas' {Forma_Bienvenida},
+  Unidad_PIN in 'Unidad_PIN.pas' {Forma_PIN},
+  Unidad_Menu in 'Unidad_Menu.pas' {Forma_Menu};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForma_Bienvenida, Forma_Bienvenida);
+  Application.CreateForm(TForma_PIN, Forma_PIN);
+  Application.CreateForm(TForma_Menu, Forma_Menu);
+  Application.Run;
+end.
