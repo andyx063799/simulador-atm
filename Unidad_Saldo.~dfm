@@ -1,8 +1,9 @@
 object Forma_Saldo: TForma_Saldo
-  Left = 282
-  Top = 387
+  Left = 360
+  Top = 290
   Width = 800
   Height = 600
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Forma_Saldo'
   Color = clNavy
   Font.Charset = DEFAULT_CHARSET

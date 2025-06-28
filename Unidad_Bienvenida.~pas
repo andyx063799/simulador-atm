@@ -19,6 +19,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -32,7 +33,7 @@ var
   NumeroTarjeta: string = '1234567890123456';
   PINCorrect: string = '1234';
   NombreUsuario: string = 'JUAN PEREZ';
-  NombreCompleto: string = 'Juan Perez Leon'
+  NombreCompleto: string = 'Juan Perez Leon';
   CorreoUsuario: string = 'juanperez80@gmail.com';
   TelefonoUsuario: string = '+52 9933883222';
   TipoCuenta: string = 'Cuenta de Ahorros';
@@ -59,6 +60,12 @@ procedure TForma_Bienvenida.FormCreate(Sender: TObject);
 begin
   Timer1.Enabled := True;
   Timer1.Interval := 1000;
+end;
+
+procedure TForma_Bienvenida.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Application.Terminate;
 end;
 
 end.

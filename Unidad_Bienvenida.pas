@@ -19,6 +19,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -59,6 +60,12 @@ procedure TForma_Bienvenida.FormCreate(Sender: TObject);
 begin
   Timer1.Enabled := True;
   Timer1.Interval := 1000;
+end;
+
+procedure TForma_Bienvenida.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Application.Terminate;
 end;
 
 end.

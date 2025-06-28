@@ -3,6 +3,7 @@ object Forma_Informacion: TForma_Informacion
   Top = 159
   Width = 800
   Height = 600
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Forma_Informacion'
   Color = clNavy
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +12,7 @@ object Forma_Informacion: TForma_Informacion
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13

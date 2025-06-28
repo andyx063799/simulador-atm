@@ -1,8 +1,9 @@
 object Forma_Menu: TForma_Menu
-  Left = 328
-  Top = 446
+  Left = 207
+  Top = 101
   Width = 800
   Height = 600
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Cajero Autom'#225'tico - Men'#250' Principal'
   Color = clNavy
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +13,7 @@ object Forma_Menu: TForma_Menu
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -132,9 +134,9 @@ object Forma_Menu: TForma_Menu
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 566
+      Left = 550
       Top = 8
-      Width = 124
+      Width = 155
       Height = 14
       Caption = 'Saldo disponible: $0.00'
       Font.Charset = DEFAULT_CHARSET

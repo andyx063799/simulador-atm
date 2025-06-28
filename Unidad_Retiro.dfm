@@ -1,16 +1,272 @@
 object Forma_Retiro: TForma_Retiro
-  Left = 191
-  Top = 125
-  Width = 928
-  Height = 480
+  Left = 380
+  Top = 158
+  Width = 800
+  Height = 598
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Forma_Retiro'
-  Color = clBtnFace
+  Color = clNavy
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object Panel1: TPanel
+    Left = 48
+    Top = 40
+    Width = 700
+    Height = 450
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 26
+      Top = 26
+      Width = 272
+      Height = 32
+      Caption = 'RETIRO DE CUENTA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -27
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Panel2: TPanel
+      Left = 0
+      Top = 204
+      Width = 700
+      Height = 149
+      Color = clSilver
+      TabOrder = 0
+      object Button3: TButton
+        Left = 50
+        Top = 20
+        Width = 60
+        Height = 40
+        Caption = '1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        OnClick = Button3Click
+      end
+      object Button4: TButton
+        Left = 130
+        Top = 20
+        Width = 60
+        Height = 40
+        Caption = '2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = Button4Click
+      end
+      object Button5: TButton
+        Left = 210
+        Top = 20
+        Width = 60
+        Height = 40
+        Caption = '3'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+        OnClick = Button5Click
+      end
+      object Button6: TButton
+        Left = 50
+        Top = 70
+        Width = 60
+        Height = 40
+        Caption = '4'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+        OnClick = Button6Click
+      end
+      object Button7: TButton
+        Left = 130
+        Top = 70
+        Width = 60
+        Height = 40
+        Caption = '5'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 4
+        OnClick = Button7Click
+      end
+      object Button8: TButton
+        Left = 210
+        Top = 70
+        Width = 60
+        Height = 40
+        Caption = '6'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 5
+        OnClick = Button8Click
+      end
+      object Button9: TButton
+        Left = 430
+        Top = 20
+        Width = 60
+        Height = 40
+        Caption = '7'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 6
+        OnClick = Button9Click
+      end
+      object Button10: TButton
+        Left = 510
+        Top = 20
+        Width = 60
+        Height = 40
+        Caption = '8'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 7
+        OnClick = Button10Click
+      end
+      object Button11: TButton
+        Left = 590
+        Top = 20
+        Width = 60
+        Height = 40
+        Caption = '9'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 8
+        OnClick = Button11Click
+      end
+      object Button12: TButton
+        Left = 510
+        Top = 70
+        Width = 60
+        Height = 40
+        Caption = '0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 9
+        OnClick = Button12Click
+      end
+      object Button13: TButton
+        Left = 430
+        Top = 70
+        Width = 60
+        Height = 40
+        Caption = 'LIMPIAR'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -8
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 10
+        OnClick = Button13Click
+      end
+      object Button14: TButton
+        Left = 590
+        Top = 70
+        Width = 60
+        Height = 40
+        Caption = 'BORRAR'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -8
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 11
+        OnClick = Button14Click
+      end
+    end
+    object Button1: TButton
+      Left = 200
+      Top = 374
+      Width = 100
+      Height = 40
+      Caption = 'RETIRAR '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 376
+      Top = 374
+      Width = 100
+      Height = 40
+      Caption = 'SALIR '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      OnClick = Button2Click
+    end
+    object Edit1: TEdit
+      Left = 275
+      Top = 128
+      Width = 150
+      Height = 40
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      MaxLength = 4
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 3
+    end
+  end
 end

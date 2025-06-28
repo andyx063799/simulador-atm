@@ -17,6 +17,7 @@ type
     Button2: TButton;
     procedure FormShow(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -47,6 +48,12 @@ begin
     Self.Hide;
     Forma_Menu.Show;
   end;
+end;
+
+procedure TForma_Saldo.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Application.Terminate;
 end;
 
 end.

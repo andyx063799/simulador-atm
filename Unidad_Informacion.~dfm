@@ -1,8 +1,9 @@
 object Forma_Informacion: TForma_Informacion
-  Left = 366
-  Top = 121
+  Left = 369
+  Top = 159
   Width = 800
   Height = 600
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Forma_Informacion'
   Color = clNavy
   Font.Charset = DEFAULT_CHARSET
@@ -98,6 +99,21 @@ object Forma_Informacion: TForma_Informacion
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
+    end
+    object Button1: TButton
+      Left = 210
+      Top = 344
+      Width = 280
+      Height = 60
+      Caption = 'REGRESAR AL MENU'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = Button1Click
     end
   end
 end

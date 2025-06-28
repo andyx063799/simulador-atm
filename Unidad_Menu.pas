@@ -24,6 +24,7 @@ type
     procedure Button6Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -82,6 +83,11 @@ procedure TForma_Menu.FormShow(Sender: TObject);
 begin
   Label2.Caption := 'Bienvenido: ' + NombreUsuario;
   Label3.Caption := 'Saldo disponible: $' + FormatFloat('#,##0.00', SaldoCuenta);
+end;
+
+procedure TForma_Menu.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
 end;
 
 end.

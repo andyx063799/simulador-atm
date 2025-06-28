@@ -1,8 +1,9 @@
 object Forma_Saldo: TForma_Saldo
-  Left = 358
-  Top = 88
+  Left = 398
+  Top = 204
   Width = 800
   Height = 600
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Forma_Saldo'
   Color = clNavy
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +12,7 @@ object Forma_Saldo: TForma_Saldo
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13

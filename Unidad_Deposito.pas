@@ -4,21 +4,175 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+  Dialogs, StdCtrls, ExtCtrls;
 
 type
   TForma_Deposito = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Panel2: TPanel;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    Button12: TButton;
+    Button13: TButton;
+    Button14: TButton;
+    Button1: TButton;
+    Button2: TButton;
+    Edit1: TEdit;
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure Button14Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
+    procedure AgregarDigito(Digito: string);
+    procedure LimpiarCantidad;
   public
     { Public declarations }
   end;
 
 var
   Forma_Deposito: TForma_Deposito;
+  MontoCentavos: Integer = 0;
 
 implementation
 
+uses Unidad_Bienvenida, Unidad_Menu;
+
 {$R *.dfm}
+
+procedure TForma_Deposito.AgregarDigito(Digito: string);
+begin
+  if Length(IntToStr(MontoCentavos)) < 9 then
+  begin
+    MontoCentavos := MontoCentavos * 10 + StrToInt(Digito);
+    Edit1.Text := '$' + FormatFloat('0.00', MontoCentavos / 100);
+  end;
+end;
+
+procedure TForma_Deposito.LimpiarCantidad;
+begin
+  MontoCentavos := 0;
+  Edit1.Text := '$0.00';
+end;
+
+procedure TForma_Deposito.Button3Click(Sender: TObject);
+begin
+  AgregarDigito('1');
+end;
+
+procedure TForma_Deposito.Button4Click(Sender: TObject);
+begin
+  AgregarDigito('2');
+end;
+
+procedure TForma_Deposito.Button5Click(Sender: TObject);
+begin
+  AgregarDigito('3');
+end;
+
+procedure TForma_Deposito.Button6Click(Sender: TObject);
+begin
+  AgregarDigito('4');
+end;
+
+procedure TForma_Deposito.Button7Click(Sender: TObject);
+begin
+  AgregarDigito('5');
+end;
+
+procedure TForma_Deposito.Button8Click(Sender: TObject);
+begin
+  AgregarDigito('6');
+end;
+
+
+procedure TForma_Deposito.Button9Click(Sender: TObject);
+begin
+  AgregarDigito('7');
+end;
+
+procedure TForma_Deposito.Button10Click(Sender: TObject);
+begin
+  AgregarDigito('8');
+end;
+
+procedure TForma_Deposito.Button11Click(Sender: TObject);
+begin
+  AgregarDigito('9');
+end;
+
+procedure TForma_Deposito.Button12Click(Sender: TObject);
+begin
+  AgregarDigito('0');
+end;
+
+procedure TForma_Deposito.Button13Click(Sender: TObject);
+begin
+  LimpiarCantidad;
+end;
+
+procedure TForma_Deposito.Button14Click(Sender: TObject);
+begin
+  MontoCentavos := MontoCentavos div 10;
+  Edit1.Text := '$' + FormatFloat('0.00', MontoCentavos / 100);
+end;
+
+procedure TForma_Deposito.Button2Click(Sender: TObject);
+begin
+  Self.Hide;
+  Forma_Menu.Show;
+end;
+
+procedure TForma_Deposito.FormShow(Sender: TObject);
+begin
+  LimpiarCantidad;
+end;
+
+procedure TForma_Deposito.Button1Click(Sender: TObject);
+var
+  MontoFinal: Currency;
+begin
+  MontoFinal := MontoCentavos / 100;
+
+  if MontoFinal <= 0 then
+  begin
+    ShowMessage('Ingrese una cantidad válida.');
+    Exit;
+  end;
+
+  SaldoCuenta := SaldoCuenta + MontoFinal;
+
+  ShowMessage('Deposito exitoso. Monto: $' + FormatFloat('#,##0.00', MontoFinal) +
+              sLineBreak + 'Saldo restante: $' + FormatFloat('#,##0.00', SaldoCuenta));
+
+  Self.Hide;
+  Forma_Menu.Show;
+end;
+
+procedure TForma_Deposito.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
 
 end.

@@ -1,8 +1,9 @@
 object Forma_Bienvenida: TForma_Bienvenida
-  Left = 212
-  Top = 160
+  Left = 338
+  Top = 95
   Width = 800
   Height = 600
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Cajero Autom'#225'tico - Bienvenida'
   Color = clNavy
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +13,7 @@ object Forma_Bienvenida: TForma_Bienvenida
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13

@@ -42,6 +42,7 @@ type
     procedure Button13Click(Sender: TObject);
     procedure Button14Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     procedure AgregarDigito(Digito: string);
@@ -166,6 +167,11 @@ procedure TForma_PIN.FormShow(Sender: TObject);
 begin
   LimpiarPIN;
   Label3.Caption := 'Intentos restantes: ' + IntToStr(IntentosRestantes);
+end;
+
+procedure TForma_PIN.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
 end;
 
 end.

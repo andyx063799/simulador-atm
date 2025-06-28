@@ -1,8 +1,9 @@
 object Forma_PIN: TForma_PIN
-  Left = 192
-  Top = 107
+  Left = 214
+  Top = 152
   Width = 800
   Height = 600
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Cajero Autom'#225'tico - Ingreso de PIN'
   Color = clNavy
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +13,7 @@ object Forma_PIN: TForma_PIN
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
