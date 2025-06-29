@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls;
+  Dialogs, StdCtrls, ExtCtrls, jpeg;
 
 type
   TForma_Deposito = class(TForm)
@@ -26,6 +26,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Edit1: TEdit;
+    Image2: TImage;
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
@@ -56,12 +57,13 @@ var
 
 implementation
 
-uses Unidad_Bienvenida, Unidad_Menu;
+uses Unidad_Bienvenida, Unidad_Menu, MMSystem;
 
 {$R *.dfm}
 
 procedure TForma_Deposito.AgregarDigito(Digito: string);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   if Length(IntToStr(MontoCentavos)) < 9 then
   begin
     MontoCentavos := MontoCentavos * 10 + StrToInt(Digito);
@@ -71,6 +73,7 @@ end;
 
 procedure TForma_Deposito.LimpiarCantidad;
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   MontoCentavos := 0;
   Edit1.Text := '$0.00';
 end;
@@ -128,17 +131,20 @@ end;
 
 procedure TForma_Deposito.Button13Click(Sender: TObject);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   LimpiarCantidad;
 end;
 
 procedure TForma_Deposito.Button14Click(Sender: TObject);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   MontoCentavos := MontoCentavos div 10;
   Edit1.Text := '$' + FormatFloat('0.00', MontoCentavos / 100);
 end;
 
 procedure TForma_Deposito.Button2Click(Sender: TObject);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   Self.Hide;
   Forma_Menu.Show;
 end;
@@ -162,6 +168,7 @@ begin
 
   SaldoCuenta := SaldoCuenta + MontoFinal;
 
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\load_correct.wav'), 0, SND_FILENAME or SND_ASYNC);
   ShowMessage('Deposito exitoso. Monto: $' + FormatFloat('#,##0.00', MontoFinal) +
               sLineBreak + 'Saldo restante: $' + FormatFloat('#,##0.00', SaldoCuenta));
 

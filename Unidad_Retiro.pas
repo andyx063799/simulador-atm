@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls;
+  Dialogs, StdCtrls, ExtCtrls, jpeg;
 
 type
   TForma_Retiro = class(TForm)
@@ -26,6 +26,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Edit1: TEdit;
+    Image2: TImage;
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
@@ -56,12 +57,13 @@ var
 
 implementation
 
-uses Unidad_Bienvenida, Unidad_Menu;
+uses Unidad_Bienvenida, Unidad_Menu, MMSystem;
 
 {$R *.dfm}
 
 procedure TForma_Retiro.AgregarDigito(Digito: string);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   if Length(IntToStr(MontoCentavos)) < 9 then
   begin
     MontoCentavos := MontoCentavos * 10 + StrToInt(Digito);
@@ -71,12 +73,14 @@ end;
 
 procedure TForma_Retiro.LimpiarCantidad;
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   MontoCentavos := 0;
   Edit1.Text := '$0.00';
 end;
 
 procedure TForma_Retiro.Button2Click(Sender: TObject);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   Self.Hide;
   Forma_Menu.Show;
 end;
@@ -133,11 +137,13 @@ end;
 
 procedure TForma_Retiro.Button13Click(Sender: TObject);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   LimpiarCantidad;
 end;
 
 procedure TForma_Retiro.Button14Click(Sender: TObject);
 begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\button_click.wav'), 0, SND_FILENAME or SND_ASYNC);
   MontoCentavos := MontoCentavos div 10;
   Edit1.Text := '$' + FormatFloat('0.00', MontoCentavos / 100);
 end;
@@ -151,25 +157,33 @@ end;
 procedure TForma_Retiro.Button1Click(Sender: TObject);
 var
   MontoFinal: Currency;
+  RutaSonido: string;
 begin
   MontoFinal := MontoCentavos / 100;
 
   if MontoFinal <= 0 then
   begin
+    PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\load_incorrect.wav'), 0, SND_FILENAME or SND_ASYNC);
     ShowMessage('Ingrese una cantidad válida.');
     Exit;
   end;
 
   if MontoFinal > SaldoCuenta then
   begin
+    PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\load_incorrect.wav'), 0, SND_FILENAME or SND_ASYNC);
     ShowMessage('Saldo insuficiente.');
     Exit;
   end;
+
+  RutaSonido := ExtractFilePath(Application.ExeName) + 'sonidos\contando.wav';
+
+  PlaySound(PChar(RutaSonido), 0, SND_FILENAME or SND_SYNC);
 
   SaldoCuenta := SaldoCuenta - MontoFinal;
 
   ShowMessage('Retiro exitoso. Monto: $' + FormatFloat('#,##0.00', MontoFinal) +
               sLineBreak + 'Saldo restante: $' + FormatFloat('#,##0.00', SaldoCuenta));
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\load_correct.wav'), 0, SND_FILENAME or SND_ASYNC);
 
   Self.Hide;
   Forma_Menu.Show;

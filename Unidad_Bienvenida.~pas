@@ -11,15 +11,16 @@ type
     Panel1: TPanel;
     Label1: TLabel;
     Label2: TLabel;
-    Button1: TButton;
     Label3: TLabel;
     Timer1: TTimer;
     Panel2: TPanel;
     Label4: TLabel;
-    procedure Button1Click(Sender: TObject);
+    Image1: TImage;
+    Image2: TImage;
     procedure Timer1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Image1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,15 +42,9 @@ var
 
 implementation
 
-uses Unidad_PIN;
+uses Unidad_PIN, MMSystem;
 
 {$R *.dfm}
-
-procedure TForma_Bienvenida.Button1Click(Sender: TObject);
-begin
-  Self.Hide;
-  Forma_PIN.Show;
-end;
 
 procedure TForma_Bienvenida.Timer1Timer(Sender: TObject);
 begin
@@ -66,6 +61,13 @@ procedure TForma_Bienvenida.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   Application.Terminate;
+end;
+
+procedure TForma_Bienvenida.Image1Click(Sender: TObject);
+begin
+  PlaySound(PChar(ExtractFilePath(Application.ExeName) + 'sonidos\check_beep.wav'), 0, SND_FILENAME or SND_ASYNC);
+  Self.Hide;
+  Forma_PIN.Show;
 end;
 
 end.
